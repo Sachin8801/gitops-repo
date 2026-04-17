@@ -7,7 +7,7 @@ replicaCount: 2
 
 image:
   repository: sachin8801/easyshop
-  tag: latest   # placeholder only
+  tag: af5568f0113033ef82f423d0700d568cdc63cdd2
   pullPolicy: Always
 
 service:
