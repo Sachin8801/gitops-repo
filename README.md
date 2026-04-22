@@ -51,17 +51,14 @@ Provisioned:
 - Argo CD
 
 🚀 Argo CD Setup
-kubectl create namespace argocd
+- kubectl create namespace argocd
 
-kubectl apply -n argocd \
--f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+- kubectl apply -n argocd \ -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
-kubectl patch svc argocd-server -n argocd \
--p '{"spec": {"type": "LoadBalancer"}}'
+- kubectl patch svc argocd-server -n argocd \ -p '{"spec": {"type": "LoadBalancer"}}'
 
 🔐 Argo CD Access
-kubectl -n argocd get secret argocd-initial-admin-secret \
--o jsonpath="{.data.password}" | base64 -d
+- kubectl -n argocd get secret argocd-initial-admin-secret \ -o jsonpath="{.data.password}" | base64 -d
 
 📊 Monitoring (Prometheus + Grafana)
 - kube-prometheus-stack via Helm
@@ -73,8 +70,7 @@ kubectl get pods -n monitoring
 kubectl get endpoints -n monitoring
 
 🔐 Grafana Password
-kubectl get secret monitoring-grafana -n monitoring \
--o jsonpath="{.data.admin-password}" | base64 --decode
+- kubectl get secret monitoring-grafana -n monitoring \ -o jsonpath="{.data.admin-password}" | base64 --decode
 
 
 📊 Metrics
